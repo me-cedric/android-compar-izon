@@ -2,8 +2,11 @@ package com.mecedric.androidcomparizon.di
 
 import android.content.Context
 import androidx.room.Room
+import androidx.security.crypto.EncryptedSharedPreferences
+import androidx.security.crypto.MasterKey
 import com.mecedric.androidcomparizon.persistence.AppDatabase
 import com.mecedric.androidcomparizon.persistence.PokemonDao
+import com.mecedric.androidcomparizon.preferences.AppPreferences
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,6 +17,19 @@ import dagger.hilt.components.SingletonComponent
 @Module
 @InstallIn(SingletonComponent::class)
 object PersistenceModule {
+
+    @Provides
+    fun provideSharedPreferences(@ApplicationContext context: Context): AppPreferences {
+        return AppPreferences(
+            EncryptedSharedPreferences.create(
+                context,
+                "sharedPrefsFile",
+                MasterKey.Builder(context).setKeyScheme(MasterKey.KeyScheme.AES256_GCM).build(),
+                EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+            )
+        )
+    }
 
     @Provides
     @Singleton

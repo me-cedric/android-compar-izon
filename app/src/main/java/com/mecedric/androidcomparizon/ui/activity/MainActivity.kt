@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -26,7 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.mecedric.androidcomparizon.R
-import com.mecedric.androidcomparizon.ui.theme.AndroidComparizonTheme
+import com.mecedric.androidcomparizon.ui.theme.AndroidAppTheme
 import com.mecedric.androidcomparizon.ui.viewmodel.MainViewModel
 import com.mecedric.androidcomparizon.util.NavGraph
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,11 +38,12 @@ class MainActivity : ComponentActivity() {
     private lateinit var navController: NavHostController
     private val viewModel: MainViewModel by viewModels()
 
+    @ExperimentalComposeUiApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             navController = rememberNavController()
-            AndroidComparizonTheme {
+            AndroidAppTheme {
                 // change status bar color
                 this@MainActivity.window.statusBarColor = MaterialTheme.colors.primaryVariant.toArgb()
                 // select graph
@@ -137,7 +139,7 @@ fun MessageCard(msg: Message) {
 )
 @Composable
 fun DefaultPreview() {
-    AndroidComparizonTheme {
+    AndroidAppTheme {
         MessageCard(
             msg = Message("Colleague", "Take a look at Jetpack Compose, it's great!")
         )
@@ -147,7 +149,7 @@ fun DefaultPreview() {
 @Preview
 @Composable
 fun PreviewConversation() {
-    AndroidComparizonTheme {
+    AndroidAppTheme {
         Conversation(conversationSample)
     }
 }
@@ -155,7 +157,7 @@ fun PreviewConversation() {
 @Preview
 @Composable
 fun PreviewPage() {
-    AndroidComparizonTheme {
+    AndroidAppTheme {
         Scaffold(topBar = {
             TopAppBar {
                 Text(text = "test")

@@ -7,7 +7,7 @@ interface HomeScreenActions {
 
     val controller: NavHostController
 
-    fun navigateToBrands() {
+    fun navigateToHome() {
         controller.navigate(HomeNav.MainNav.HomeScreen.route)
     }
 }

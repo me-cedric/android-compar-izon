@@ -51,8 +51,6 @@ class HomeViewModel @Inject constructor(
                     }
                 }
                 .error {
-                    Timber.e(it)
-                    crashlytics.recordException(it)
                     _commonError.value = it.message ?: "Error update feed"
                 }
                 .done {

@@ -59,7 +59,12 @@ dependencies {
     implementation "androidx.compose.material:material:$versions.composeVersion"
     implementation "androidx.compose.ui:ui-tooling-preview:$versions.composeVersion"
     implementation "androidx.compose.ui:ui:$versions.composeVersion"
+    implementation 'androidx.security:security-crypto-ktx:1.1.0-alpha02'
     debugImplementation "androidx.compose.ui:ui-tooling:$versions.composeVersion"
+    implementation "androidx.compose.material:material-icons-extended:$versions.composeVersion"
+    implementation "androidx.constraintlayout:constraintlayout-compose:$versions.constraintLayoutComposeVersion"
+    implementation "androidx.activity:activity-compose:$versions.activityComposeVersion"
+    implementation "androidx.paging:paging-compose:$versions.pagingComposeVersion"
 
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycleVersion"
 
@@ -93,7 +98,17 @@ dependencies {
     //kotlin coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
-
-
+    
     implementation "com.github.skydoves:landscapist-glide:1.2.1"
+
+    // accompanist
+    implementation "com.google.accompanist:accompanist-insets:$versions.accompanistVersion"
+    implementation "com.google.accompanist:accompanist-pager:$versions.accompanistVersion"
+    implementation "com.google.accompanist:accompanist-pager-indicators:$versions.accompanistVersion"
+    implementation "com.google.accompanist:accompanist-swiperefresh:$versions.accompanistVersion"
+    implementation "com.google.accompanist:accompanist-systemuicontroller:$versions.accompanistVersion"
+
+    // lottie
+    implementation "com.airbnb.android:lottie:$versions.lottieVersions"
+    implementation "com.airbnb.android:lottie-compose:$versions.lottieVersions"
 }

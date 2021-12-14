@@ -10,15 +10,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import com.keygenqt.accompanist.MainScaffoldSearch
-import com.keygenqt.demo_contacts.R
-import com.keygenqt.demo_contacts.modules._common.ui.compose.EmptyListScreen
-import com.keygenqt.demo_contacts.modules._common.ui.compose.TopBarContentSubtitle
-import com.keygenqt.demo_contacts.modules._common.ui.compose.TopBarContentTitle
+import com.mecedric.androidcomparizon.R
+import com.mecedric.androidcomparizon.modules.common.compose.EmptyListScreen
+import com.mecedric.androidcomparizon.modules.common.compose.TopBarContentSubtitle
+import com.mecedric.androidcomparizon.modules.common.compose.TopBarContentTitle
 import com.mecedric.androidcomparizon.modules.home.ui.events.HomeEvents
 import com.mecedric.androidcomparizon.modules.home.ui.viewModels.HomeViewModel
-import com.keygenqt.demo_contacts.theme.MyTheme
-import com.keygenqt.modifier.sizeXSmall
+import com.mecedric.androidcomparizon.ui.theme.AndroidAppTheme
 
 @ExperimentalComposeUiApi
 @Composable
@@ -56,9 +54,9 @@ fun HomeBody(
 @Preview("Dark", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun EmptyListScreenPreview() {
-    MyTheme {
+    AndroidAppTheme() {
         Scaffold {
-            CartBody()
+            HomeBody()
         }
     }
 }

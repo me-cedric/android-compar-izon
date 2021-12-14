@@ -28,7 +28,7 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun AndroidComparizonTheme(
+fun AndroidAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable() () -> Unit
 ) {
@@ -44,4 +44,25 @@ fun AndroidComparizonTheme(
         shapes = Shapes,
         content = content
     )
+}
+
+// custom palette colors
+val DarkColorCustomPalette: @Composable () -> CustomColors by lazy {
+    { parseConfigCustomPalette(false) }
+}
+
+val LightColorCustomPalette: @Composable () -> CustomColors by lazy {
+    { parseConfigCustomPalette(true) }
+}
+
+object MaterialThemeCustom {
+    val colors: CustomColors
+        @Composable
+        get() {
+            return if (isSystemInDarkTheme()) {
+                DarkColorCustomPalette()
+            } else {
+                LightColorCustomPalette()
+            }
+        }
 }
