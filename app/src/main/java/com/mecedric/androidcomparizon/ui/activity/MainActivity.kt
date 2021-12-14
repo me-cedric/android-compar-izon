@@ -1,9 +1,10 @@
-package com.mecedric.androidcomparizon
+package com.mecedric.androidcomparizon.ui.activity
 
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.Image
@@ -13,24 +14,38 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.mecedric.androidcomparizon.R
 import com.mecedric.androidcomparizon.ui.theme.AndroidComparizonTheme
+import com.mecedric.androidcomparizon.ui.viewmodel.MainViewModel
+import com.mecedric.androidcomparizon.util.NavGraph
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    private lateinit var navController: NavHostController
+    private val viewModel: MainViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            navController = rememberNavController()
             AndroidComparizonTheme {
-                Conversation(conversationSample)
+                // change status bar color
+                this@MainActivity.window.statusBarColor = MaterialTheme.colors.primaryVariant.toArgb()
+                // select graph
+                NavGraph(navController)
             }
         }
     }
@@ -49,7 +64,10 @@ data class Message(val author: String, val body: String)
 
 val conversationSample = listOf(
     Message("Colleague", "Take a look at Jetpack Compose, it's great!"),
-    Message("Colleague", "Take a look at Jetpack Compose, it's great! Take a look at Jetpack Compose, it's great! Take a look at Jetpack Compose, it's great! Take a look at Jetpack Compose, it's great! Take a look at Jetpack Compose, it's great!"),
+    Message(
+        "Colleague",
+        "Take a look at Jetpack Compose, it's great! Take a look at Jetpack Compose, it's great! Take a look at Jetpack Compose, it's great! Take a look at Jetpack Compose, it's great! Take a look at Jetpack Compose, it's great!"
+    ),
     Message("Colleague", "Take a look at Jetpack Compose, it's great!"),
     Message("Colleague", "Take a look at Jetpack Compose, it's great!")
 )
@@ -91,7 +109,9 @@ fun MessageCard(msg: Message) {
                 // surfaceColor color will be changing gradually from primary to surface
                 color = surfaceColor,
                 // animateContentSize will change the Surface size gradually
-                modifier = Modifier.animateContentSize().padding(1.dp)
+                modifier = Modifier
+                    .animateContentSize()
+                    .padding(1.dp)
             ) {
                 Text(
                     text = msg.body,
@@ -129,5 +149,19 @@ fun DefaultPreview() {
 fun PreviewConversation() {
     AndroidComparizonTheme {
         Conversation(conversationSample)
+    }
+}
+
+@Preview
+@Composable
+fun PreviewPage() {
+    AndroidComparizonTheme {
+        Scaffold(topBar = {
+            TopAppBar {
+                Text(text = "test")
+            }
+        }) {
+            Conversation(conversationSample)
+        }
     }
 }

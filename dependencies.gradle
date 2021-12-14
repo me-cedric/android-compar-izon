@@ -1,0 +1,28 @@
+ext.versions = [
+        minSdk                  : 26,
+        compileSdk              : 31,
+        versionCode             : 1,
+
+        versionName             : '0.0.1',
+
+        gradle                  : '7.0.3',
+
+        kotlin                  : '1.5.31',
+
+        coroutines              : '1.5.2',
+        composeVersion          : '1.0.5',
+        navVersion              : '2.3.5',
+        hiltVersion             : '2.37',
+        roomVersion             : '2.4.0-rc01',
+        retrofitVersion         : '2.9.0',
+        retrofitLogging         : '5.0.0-alpha.2',
+        moshiVersion            : '1.12.0',
+
+        hiltCompilerVersion     : '1.0.0',
+        hiltLifecycleViewModel  : '1.0.0-alpha03',
+        lifecycleVersion        : '2.4.0',
+        materialVersion         : '1.4.0',
+        coreVersion             : '1.7.0',
+        navigationVersion       : '2.4.0-beta02',
+        hiltNavigationVersion   : '1.0.0-alpha03',
+]
