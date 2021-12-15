@@ -1,4 +1,4 @@
-package com.mecedric.androidcomparizon.ui.theme
+package com.mecedric.androidcomparizon.modules.main.theme
 
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable

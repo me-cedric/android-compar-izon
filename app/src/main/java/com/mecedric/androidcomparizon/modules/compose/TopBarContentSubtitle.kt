@@ -1,4 +1,4 @@
-package com.mecedric.androidcomparizon.modules.common.compose
+package com.mecedric.androidcomparizon.modules.compose
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.MaterialTheme
@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import com.mecedric.androidcomparizon.ui.theme.MaterialThemeCustom
+import com.mecedric.androidcomparizon.modules.main.theme.MaterialThemeCustom
 
 @Composable
 fun TopBarContentSubtitle(text: String) {

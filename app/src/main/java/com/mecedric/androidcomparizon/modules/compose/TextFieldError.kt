@@ -1,4 +1,4 @@
-package com.mecedric.androidcomparizon.modules.common.compose
+package com.mecedric.androidcomparizon.modules.compose
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.*
@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.mecedric.androidcomparizon.ui.theme.AndroidAppTheme
+import com.mecedric.androidcomparizon.modules.main.theme.AndroidAppTheme
 
 @Composable
 fun TextFieldError(

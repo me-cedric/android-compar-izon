@@ -13,14 +13,16 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.google.accompanist.insets.ProvideWindowInsets
-import com.mecedric.androidcomparizon.modules.common.compose.BottomBar
+import com.mecedric.androidcomparizon.modules.compose.BottomBar
 import com.mecedric.androidcomparizon.modules.home.navigation.graph.homeNavGraph
 import com.mecedric.androidcomparizon.modules.home.navigation.nav.HomeNav
-import com.mecedric.androidcomparizon.util.HomeTab.Companion.findByRoute
+import com.mecedric.androidcomparizon.nav.NavActions
+import com.mecedric.androidcomparizon.modules.main.viewmodel.MainViewModel
+import com.mecedric.androidcomparizon.nav.HomeTab.Companion.findByRoute
 
-@ExperimentalComposeUiApi
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
-fun NavGraph(navController: NavHostController) {
+fun NavGraph(navController: NavHostController, viewModel: MainViewModel) {
 
     navController.AddChangeRouteListener()
 
@@ -50,10 +52,10 @@ fun NavGraph(navController: NavHostController) {
             ) {
                 NavHost(
                     navController = navController,
-                    startDestination = HomeNav.MainNav.HomeScreen.route
+                    startDestination = viewModel.getStartRoute()
                 ) {
                     homeNavGraph(
-                        navActions = navActions,
+                        navActions = navActions
                     )
                 }
             }

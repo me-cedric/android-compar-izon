@@ -1,4 +1,4 @@
-package com.mecedric.androidcomparizon.ui.viewmodel
+package com.mecedric.androidcomparizon.modules.main.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

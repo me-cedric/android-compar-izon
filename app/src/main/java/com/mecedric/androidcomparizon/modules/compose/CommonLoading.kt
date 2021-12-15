@@ -1,4 +1,4 @@
-package com.mecedric.androidcomparizon.modules.common.compose
+package com.mecedric.androidcomparizon.modules.compose
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable

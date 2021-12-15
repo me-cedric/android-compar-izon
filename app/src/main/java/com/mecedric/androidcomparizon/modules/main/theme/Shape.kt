@@ -1,4 +1,4 @@
-package com.mecedric.androidcomparizon.ui.theme
+package com.mecedric.androidcomparizon.modules.main.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

@@ -1,4 +1,4 @@
-package com.mecedric.androidcomparizon.modules.common.compose
+package com.mecedric.androidcomparizon.modules.compose
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Row
@@ -11,10 +11,10 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.insets.navigationBarsHeight
 import com.google.accompanist.insets.navigationBarsPadding
-import com.mecedric.androidcomparizon.ui.theme.AndroidAppTheme
-import com.mecedric.androidcomparizon.ui.theme.MaterialThemeCustom
-import com.mecedric.androidcomparizon.util.HomeTab
-import com.mecedric.androidcomparizon.util.NavActions
+import com.mecedric.androidcomparizon.modules.main.theme.AndroidAppTheme
+import com.mecedric.androidcomparizon.modules.main.theme.MaterialThemeCustom
+import com.mecedric.androidcomparizon.nav.HomeTab
+import com.mecedric.androidcomparizon.nav.NavActions
 
 @Composable
 fun BottomBar(

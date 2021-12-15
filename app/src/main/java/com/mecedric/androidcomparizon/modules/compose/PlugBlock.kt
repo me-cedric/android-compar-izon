@@ -1,4 +1,4 @@
-package com.mecedric.androidcomparizon.modules.common.compose
+package com.mecedric.androidcomparizon.modules.compose
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
@@ -18,8 +18,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mecedric.androidcomparizon.R
-import com.mecedric.androidcomparizon.ui.theme.AndroidAppTheme
-import com.mecedric.androidcomparizon.ui.theme.MaterialThemeCustom
+import com.mecedric.androidcomparizon.modules.main.theme.AndroidAppTheme
+import com.mecedric.androidcomparizon.modules.main.theme.MaterialThemeCustom
 
 @Composable
 fun PlugBlock(

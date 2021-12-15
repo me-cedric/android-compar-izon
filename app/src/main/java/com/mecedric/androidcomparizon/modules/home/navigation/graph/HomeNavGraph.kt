@@ -3,7 +3,7 @@ package com.mecedric.androidcomparizon.modules.home.navigation.graph
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.navigation.NavGraphBuilder
 import com.mecedric.androidcomparizon.modules.home.navigation.graph.impl.homeScreenGraph
-import com.mecedric.androidcomparizon.util.NavActions
+import com.mecedric.androidcomparizon.nav.NavActions
 
 @ExperimentalComposeUiApi
 @Suppress("UNUSED_PARAMETER")

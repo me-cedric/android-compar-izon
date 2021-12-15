@@ -1,4 +1,4 @@
-package com.mecedric.androidcomparizon.util
+package com.mecedric.androidcomparizon.nav
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*

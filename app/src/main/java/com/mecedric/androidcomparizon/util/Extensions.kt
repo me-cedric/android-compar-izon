@@ -10,7 +10,6 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
-import com.mecedric.androidcomparizon.ui.viewmodel.MainViewModel
 
 fun Context.isConnectedToNetwork(context: Context): Boolean {
     var result = false
@@ -68,17 +67,6 @@ fun NavController.AddChangeRouteListener() {
         // remove the navController on dispose (i.e. when the composable is destroyed)
         onDispose {
             removeOnDestinationChangedListener(callback)
-        }
-    }
-}
-
-// Update after the second click on the active bottom navigator
-@Composable
-fun MainViewModel.ListenRefresh(listener: (route: String) -> Unit) {
-    val refresh by toggleRefresh.collectAsState()
-    LaunchedEffect(refresh) {
-        if (refresh) {
-            listener.invoke(route.value)
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.mecedric.androidcomparizon.util
+package com.mecedric.androidcomparizon.nav
 
 import androidx.navigation.NavHostController
 import com.mecedric.androidcomparizon.modules.home.navigation.actions.HomeNavActions

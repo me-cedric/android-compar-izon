@@ -1,4 +1,4 @@
-package com.mecedric.androidcomparizon.modules.common.compose
+package com.mecedric.androidcomparizon.modules.compose
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Snackbar
