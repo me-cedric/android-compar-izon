@@ -13,7 +13,6 @@ import com.google.accompanist.insets.navigationBarsHeight
 import com.google.accompanist.insets.navigationBarsPadding
 import com.mecedric.androidcomparizon.ui.theme.AndroidAppTheme
 import com.mecedric.androidcomparizon.ui.theme.MaterialThemeCustom
-import com.mecedric.androidcomparizon.ui.viewmodel.LocalBaseViewModel
 import com.mecedric.androidcomparizon.util.HomeTab
 import com.mecedric.androidcomparizon.util.NavActions
 
@@ -22,7 +21,6 @@ fun BottomBar(
     navActions: NavActions,
     currentRoute: HomeTab = HomeTab.HOME,
 ) {
-    val baseViewModel = LocalBaseViewModel.current
 
     if (HomeTab.values().any { it.route == currentRoute.route }) {
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -41,7 +39,7 @@ fun BottomBar(
                         selected = tab.route == currentRoute.route,
                         onClick = {
                             if (currentRoute == tab) {
-                                baseViewModel.listRefresh()
+//                                baseViewModel.listRefresh()
                             } else {
                                 when (tab) {
                                     HomeTab.HOME -> navActions.navigateToHome()

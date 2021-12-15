@@ -34,19 +34,11 @@ fun HomeScreen(
 fun HomeBody(
     onEvent: (HomeEvents) -> Unit = {},
 ) {
-    MainScaffoldSearch(
-        contentTitle = {
-            TopBarContentTitle(stringResource(id = R.string.cart_title).uppercase(), TextAlign.Center)
-            Spacer(modifier = Modifier.sizeXSmall())
-            TopBarContentSubtitle(stringResource(id = R.string.cart_subtitle, (12345678..87654321).random()))
-        },
-    ) {
-        EmptyListScreen(
-            title = stringResource(id = R.string.cart_empty_title),
-            text = stringResource(id = R.string.cart_empty_text),
-            painter = painterResource(id = R.drawable.ic_cart_empty_state)
-        )
-    }
+    EmptyListScreen(
+        title = stringResource(id = R.string.app_name),
+        text = stringResource(id = R.string.app_name),
+        painter = painterResource(id = R.drawable.ic_cart_empty_state)
+    )
 }
 
 @ExperimentalComposeUiApi

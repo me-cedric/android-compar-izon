@@ -1,71 +1,73 @@
 package com.mecedric.androidcomparizon.modules.home.ui.viewModels
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.mecedric.androidcomparizon.modules.home.services.apiService.ApiServiceHome
-import com.mecedric.androidcomparizon.modules.home.services.data.DataServiceHome
+import androidx.lifecycle.*
+import com.mecedric.androidcomparizon.data.model.Pokemon
+import com.mecedric.androidcomparizon.data.repository.PokemonRepository
+import com.mecedric.androidcomparizon.preferences.AppPreferences
+import com.mecedric.androidcomparizon.util.CallResult.Status.*
+import com.mecedric.androidcomparizon.util.ConstantsPaging
+import com.mecedric.androidcomparizon.util.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val data: DataServiceHome,
-    private val apiService: ApiServiceHome,
+    private val pokemonRepository: PokemonRepository,
+    private val sharedPreferences: AppPreferences
 ) : ViewModel() {
+    private val limit: Int = 20
+    private var offset: Int = 0
 
-    private val _errorConnection: MutableStateFlow<Boolean> = MutableStateFlow(false)
-    val errorConnection: StateFlow<Boolean> get() = _errorConnection.asStateFlow()
+    private val _commonError: MutableLiveData<String?> = MutableLiveData(null)
+    val commonError: LiveData<String?> get() = _commonError
 
-    private val _commonError: MutableStateFlow<String?> = MutableStateFlow(null)
-    val commonError: StateFlow<String?> get() = _commonError.asStateFlow()
+    private val _loading: MutableLiveData<Boolean> = MutableLiveData(false)
+    val loading: LiveData<Boolean> get() = _loading
 
-    private val _loading: MutableStateFlow<Boolean> = MutableStateFlow(false)
-    val loading: StateFlow<Boolean> get() = _loading.asStateFlow()
+    private val _onPokemonFetchedEvent = MutableLiveData<Event<Unit>>()
+    val onPokemonFetched: LiveData<Event<Unit>> = _onPokemonFetchedEvent
+
+    private var pokemonFetchingLiveData: MutableLiveData<Event<Unit>> = MutableLiveData()
 
     init {
-        if (System.currentTimeMillis() - data.preferences.lastUpdateFeed >= ConstantsPaging.CACHE_TIMEOUT) {
-            updateFeed()
+        if (System.currentTimeMillis() - sharedPreferences.lastUpdateFeed >= ConstantsPaging.CACHE_TIMEOUT) {
+            fetchPokemons()
         }
     }
 
-    fun updateFeed() {
-        data.preferences.lastUpdateFeed = System.currentTimeMillis()
+    fun fetchPokemons() {
+        offset = 0
+        sharedPreferences.lastUpdateFeed = System.currentTimeMillis()
         // start update
-        _commonError.value = null
-        _loading.value = true
+        _commonError.postValue(null)
         // make a request
-        viewModelScope.launch {
-            apiService.getFeed()
-                .success { response ->
-                    // clear old data
-                    data.clear()
-                    // insert if not null
-                    response?.let {
-                        data.insert(it)
-                    }
+        loadPokemons()
+    }
+
+    val pokemonsLiveData: LiveData<List<Pokemon>?> = pokemonFetchingLiveData.switchMap {
+        pokemonRepository.observePokemonList(limit, offset).map { result ->
+            when (result.status) {
+                SUCCESS -> {
+                    _onPokemonFetchedEvent.postValue(Event(Unit))
                 }
-                .error {
-                    _commonError.value = it.message ?: "Error update feed"
+                ERROR -> {
+                    _commonError.postValue("Error update feed")
                 }
-                .done {
-                    delay(500) // disable loading after insert
-                    _loading.value = false
-                    _errorConnection.value = false
+                LOADING -> _loading.postValue(true)
+                DONE -> {
+                    _loading.postValue(false)
                 }
-                .errorUnknownHost {
-                    _errorConnection.value = true
-                }
+            }
+            result.data
         }
     }
 
-    fun getFeed(): Flow<FeedRelation?> {
-        return data.getFeedRelation().distinctUntilChanged()
+    fun loadPokemons() {
+        pokemonFetchingLiveData.postValue(Event(Unit))
     }
 
+    fun loadMorePokemons() {
+        offset += limit
+        loadPokemons()
+    }
 }

@@ -1,4 +1,4 @@
-package com.mecedric.androidcomparizon.persistence
+package com.mecedric.androidcomparizon.data.persistence
 
 import androidx.room.withTransaction
 import com.mecedric.androidcomparizon.preferences.AppPreferences

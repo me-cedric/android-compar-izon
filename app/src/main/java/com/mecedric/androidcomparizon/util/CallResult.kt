@@ -1,5 +1,8 @@
 package com.mecedric.androidcomparizon.util
 
+import kotlin.jvm.internal.DefaultConstructorMarker
+import kotlin.jvm.internal.Intrinsics
+
 /**
  * A generic class that holds a value with its loading status.
  *
@@ -17,7 +20,8 @@ data class CallResult<out T>(
     enum class Status {
         SUCCESS,
         ERROR,
-        LOADING
+        LOADING,
+        DONE
     }
 
     companion object {
@@ -29,5 +33,7 @@ data class CallResult<out T>(
         ): CallResult<T> = CallResult(Status.ERROR, data, message)
 
         fun <T> loading(data: T? = null): CallResult<T> = CallResult(Status.LOADING, data, null)
+
+        fun <T> finish(data: T? = null): CallResult<T> = CallResult(Status.DONE, data, null)
     }
 }

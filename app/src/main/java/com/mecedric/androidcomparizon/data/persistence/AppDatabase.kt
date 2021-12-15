@@ -1,12 +1,13 @@
-package com.mecedric.androidcomparizon.persistence
+package com.mecedric.androidcomparizon.data.persistence
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.mecedric.androidcomparizon.data.converter.PokemonConverter
+import com.mecedric.androidcomparizon.data.model.Pokemon
 
 @Database(
-    entities = [PokemonImage::class],
+    entities = [Pokemon::class],
     version = 1,
     exportSchema = false
 )

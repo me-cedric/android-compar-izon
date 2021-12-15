@@ -2,17 +2,18 @@ package com.mecedric.androidcomparizon.util
 
 import retrofit2.Response
 import java.net.SocketTimeoutException
+import kotlin.jvm.internal.Intrinsics
 
 /**
  * Abstract Base Data source class with error handling
  */
-abstract class BaseDataSource {
+interface BaseDataSource {
 
     /**
      * Get the result of an api call
      * @return a call result body or an error
      */
-    protected suspend fun <T> getResult(call: suspend () -> Response<T>): CallResult<T> {
+    suspend fun <T> getResult(call: suspend () -> Response<T>): CallResult<T> {
         try {
             val response = call()
             if (response.isSuccessful) {

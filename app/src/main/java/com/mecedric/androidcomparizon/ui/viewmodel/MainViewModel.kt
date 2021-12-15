@@ -17,7 +17,6 @@ class MainViewModel @Inject constructor(
     private val preferences: AppPreferences,
 ) : ViewModel() {
 
-
     private val _toggleRefresh: MutableStateFlow<Boolean> = MutableStateFlow(false)
     val toggleRefresh: StateFlow<Boolean> get() = _toggleRefresh.asStateFlow()
 

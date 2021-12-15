@@ -10,7 +10,6 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
-import com.mecedric.androidcomparizon.ui.viewmodel.LocalBaseViewModel
 import com.mecedric.androidcomparizon.ui.viewmodel.MainViewModel
 
 fun Context.isConnectedToNetwork(context: Context): Boolean {
@@ -59,11 +58,10 @@ fun <T> LiveData<T>.observeOnce(lifecycleOwner: LifecycleOwner, observer: Observ
 
 @Composable
 fun NavController.AddChangeRouteListener() {
-    val localBaseViewModel = LocalBaseViewModel.current
     DisposableEffect(this) {
         val callback = NavController.OnDestinationChangedListener { controller, _, _ ->
             controller.currentDestination?.route?.let { route ->
-                localBaseViewModel.setCurrentRoute(route)
+//                localBaseViewModel.setCurrentRoute(route)
             }
         }
         addOnDestinationChangedListener(callback)

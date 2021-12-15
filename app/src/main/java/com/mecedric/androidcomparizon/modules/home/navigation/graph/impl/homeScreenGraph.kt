@@ -15,7 +15,7 @@ fun NavGraphBuilder.homeScreenGraph() {
         val viewModel: HomeViewModel = hiltViewModel()
         HomeScreen(viewModel = viewModel) { event ->
             when (event) {
-                is HomeEvents.RefreshFeed -> viewModel.updateFeed()
+                is HomeEvents.RefreshFeed -> viewModel.fetchPokemons()
             }
         }
     }

@@ -1,9 +1,9 @@
 package com.mecedric.androidcomparizon.di
 
+import com.mecedric.androidcomparizon.api.ApiClient
 import com.mecedric.androidcomparizon.api.ApiService
-import com.mecedric.androidcomparizon.data.adapter.EnumAdapters
 import com.mecedric.androidcomparizon.data.converter.InstantConverter
-import com.mecedric.androidcomparizon.util.Constants
+import com.mecedric.androidcomparizon.util.ConstantsApp
 import com.mecedric.androidcomparizon.util.SerializeNulls.Companion.JSON_ADAPTER_FACTORY
 import com.squareup.moshi.Moshi
 import dagger.Module
@@ -23,16 +23,14 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun providesOkHttpClient() : OkHttpClient{
-        return OkHttpClient.Builder()
-            .addInterceptor(HttpLoggingInterceptor().setLevel(BASIC))
-            .build()
-    }
+    fun providesOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
+        .addInterceptor(HttpLoggingInterceptor().setLevel(BASIC))
+        .build()
 
     val moshi: Moshi = Moshi.Builder()
         .add(JSON_ADAPTER_FACTORY)
         .add(InstantConverter())
-        .add(EnumAdapters())
+//        .add(EnumAdapters())
         .build()
 
     @Provides
@@ -41,17 +39,17 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun providesRetrofitInstance(okHttpClient: OkHttpClient): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(Constants.baseUrl)
-            .addConverterFactory(MoshiConverterFactory.create(moshi))
-            .client(okHttpClient)
-            .build()
-    }
+    fun providesRetrofitInstance(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
+        .baseUrl(ConstantsApp.API_URL)
+        .addConverterFactory(MoshiConverterFactory.create(moshi))
+        .client(okHttpClient)
+        .build()
 
     @Provides
     @Singleton
-    fun providesApiService(retrofit: Retrofit): ApiService {
-        return retrofit.create(ApiService::class.java)
-    }
+    fun providesApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideApiClient(apiService: ApiService): ApiClient = ApiClient(apiService)
 }

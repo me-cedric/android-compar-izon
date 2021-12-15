@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.room.Room
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
-import com.mecedric.androidcomparizon.persistence.AppDatabase
-import com.mecedric.androidcomparizon.persistence.PokemonDao
+import com.mecedric.androidcomparizon.data.persistence.AppDatabase
+import com.mecedric.androidcomparizon.data.persistence.PokemonDao
 import com.mecedric.androidcomparizon.preferences.AppPreferences
 import dagger.Module
 import dagger.Provides

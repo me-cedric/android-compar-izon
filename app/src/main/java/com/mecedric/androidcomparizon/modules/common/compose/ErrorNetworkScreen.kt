@@ -21,14 +21,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mecedric.androidcomparizon.R
 import com.mecedric.androidcomparizon.ui.theme.AndroidAppTheme
-import com.mecedric.androidcomparizon.ui.viewmodel.LocalBaseViewModel
 
 @Composable
 fun ErrorNetworkScreen(
     loading: Boolean = false
 ) {
-    val baseViewModel = LocalBaseViewModel.current
-
     Box(
         modifier = Modifier
             .background(Color.White)
@@ -54,7 +51,7 @@ fun ErrorNetworkScreen(
                         shape = MaterialTheme.shapes.large,
                         modifier = Modifier.align(Alignment.Center),
                         onClick = {
-                            baseViewModel.listRefresh()
+//                            baseViewModel.listRefresh()
                         },
                     ) {
                         Text(
