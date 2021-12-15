@@ -1,6 +1,7 @@
 package com.mecedric.androidcomparizon.modules.home.navigation.graph
 
 import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import com.mecedric.androidcomparizon.modules.home.navigation.graph.impl.homeScreenGraph
 import com.mecedric.androidcomparizon.nav.NavActions
@@ -10,5 +11,7 @@ import com.mecedric.androidcomparizon.nav.NavActions
 fun NavGraphBuilder.homeNavGraph(
     navActions: NavActions,
 ) {
-    homeScreenGraph()
+    homeScreenGraph(
+        navActions = navActions,
+    )
 }

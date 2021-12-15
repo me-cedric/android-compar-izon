@@ -7,6 +7,8 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.mecedric.androidcomparizon.R
 import com.mecedric.androidcomparizon.modules.compose.EmptyListScreen
 import com.mecedric.androidcomparizon.modules.home.ui.events.HomeEvents
