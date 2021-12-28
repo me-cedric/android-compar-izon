@@ -7,14 +7,20 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.graphics.toArgb
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import androidx.paging.ExperimentalPagingApi
+import com.google.accompanist.pager.ExperimentalPagerApi
 import com.mecedric.androidcomparizon.modules.main.theme.AndroidAppTheme
 import com.mecedric.androidcomparizon.modules.main.viewmodel.MainViewModel
-import com.mecedric.androidcomparizon.util.NavGraph
+import com.mecedric.androidcomparizon.nav.NavGraph
 import dagger.hilt.android.AndroidEntryPoint
 
+@ExperimentalComposeUiApi
+@ExperimentalPagingApi
+@ExperimentalPagerApi
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 

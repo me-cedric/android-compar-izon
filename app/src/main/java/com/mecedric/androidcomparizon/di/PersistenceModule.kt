@@ -5,7 +5,6 @@ import androidx.room.Room
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import com.mecedric.androidcomparizon.data.persistence.AppDatabase
-import com.mecedric.androidcomparizon.data.persistence.PokemonDao
 import com.mecedric.androidcomparizon.preferences.AppPreferences
 import dagger.Module
 import dagger.Provides
@@ -37,10 +36,4 @@ object PersistenceModule {
             .databaseBuilder(application, AppDatabase::class.java, "poke.db")
             .fallbackToDestructiveMigration()
             .build()
-
-    @Provides
-    @Singleton
-    fun provideBookmarkDao(bookmarkDatabase: AppDatabase) : PokemonDao {
-        return bookmarkDatabase.pokemonDao()
-    }
 }

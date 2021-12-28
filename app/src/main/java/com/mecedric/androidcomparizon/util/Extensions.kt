@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 
 fun Context.isConnectedToNetwork(context: Context): Boolean {
-    var result = false
+    val result: Boolean
     val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
     val networkCapabilities = connectivityManager?.activeNetwork ?: return false
     val actNw =
@@ -59,7 +59,7 @@ fun <T> LiveData<T>.observeOnce(lifecycleOwner: LifecycleOwner, observer: Observ
 fun NavController.AddChangeRouteListener() {
     DisposableEffect(this) {
         val callback = NavController.OnDestinationChangedListener { controller, _, _ ->
-            controller.currentDestination?.route?.let { route ->
+            controller.currentDestination?.route?.let { /*route*/_ ->
 //                localBaseViewModel.setCurrentRoute(route)
             }
         }

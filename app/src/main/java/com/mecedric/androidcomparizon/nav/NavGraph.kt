@@ -1,4 +1,4 @@
-package com.mecedric.androidcomparizon.util
+package com.mecedric.androidcomparizon.nav
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -12,15 +12,18 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.paging.ExperimentalPagingApi
 import com.google.accompanist.insets.ProvideWindowInsets
-import com.mecedric.androidcomparizon.modules.compose.BottomBar
-import com.mecedric.androidcomparizon.modules.home.navigation.graph.homeNavGraph
-import com.mecedric.androidcomparizon.modules.home.navigation.nav.HomeNav
-import com.mecedric.androidcomparizon.nav.NavActions
+import com.google.accompanist.pager.ExperimentalPagerApi
 import com.mecedric.androidcomparizon.modules.main.viewmodel.MainViewModel
-import com.mecedric.androidcomparizon.nav.HomeTab.Companion.findByRoute
+import com.mecedric.androidcomparizon.modules.pokemons.navigation.actions.PokemonsNavActions
+import com.mecedric.androidcomparizon.modules.pokemons.navigation.graph.pokemonsNavGraph
+import com.mecedric.androidcomparizon.modules.pokemons.navigation.nav.PokemonNav
+import com.mecedric.androidcomparizon.util.AddChangeRouteListener
 
-@OptIn(ExperimentalComposeUiApi::class)
+@ExperimentalComposeUiApi
+@ExperimentalPagerApi
+@ExperimentalPagingApi
 @Composable
 fun NavGraph(navController: NavHostController, viewModel: MainViewModel) {
 
@@ -34,18 +37,10 @@ fun NavGraph(navController: NavHostController, viewModel: MainViewModel) {
 
         val scaffoldState = rememberScaffoldState()
         val navBackStackEntry by navController.currentBackStackEntryAsState()
-        val currentRoute = navBackStackEntry?.destination?.route ?: HomeNav.MainNav.HomeScreen.route
+        val currentRoute = navBackStackEntry?.destination?.route ?: PokemonNav.MainNav.pokemonsScreen.route
 
         Scaffold(
-            scaffoldState = scaffoldState,
-            bottomBar = currentRoute.findByRoute()?.let { homeTab ->
-                {
-                    BottomBar(
-                        currentRoute = homeTab,
-                        navActions = navActions
-                    )
-                }
-            } ?: run { {} },
+            scaffoldState = scaffoldState
         ) {
             Box(
                 modifier = Modifier.padding(it)
@@ -54,7 +49,7 @@ fun NavGraph(navController: NavHostController, viewModel: MainViewModel) {
                     navController = navController,
                     startDestination = viewModel.getStartRoute()
                 ) {
-                    homeNavGraph(
+                    pokemonsNavGraph(
                         navActions = navActions
                     )
                 }

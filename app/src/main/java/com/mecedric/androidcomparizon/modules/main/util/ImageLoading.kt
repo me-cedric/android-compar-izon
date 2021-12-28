@@ -1,4 +1,4 @@
-package tk.zedlabs.wallportal.ui.util
+package com.mecedric.androidcomparizon.modules.main.util
 
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.runtime.Composable

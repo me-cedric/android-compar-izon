@@ -5,6 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.mecedric.androidcomparizon.data.converter.PokemonConverter
 import com.mecedric.androidcomparizon.data.model.Pokemon
+import com.mecedric.androidcomparizon.modules.pokemons.data.dao.DaoPokemonModel
 
 @Database(
     entities = [Pokemon::class],
@@ -18,5 +19,5 @@ import com.mecedric.androidcomparizon.data.model.Pokemon
     ]
 )
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun pokemonDao() : PokemonDao
+    abstract fun pokemonDao() : DaoPokemonModel
 }

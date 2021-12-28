@@ -1,7 +1,5 @@
 package com.mecedric.androidcomparizon.di
 
-import com.mecedric.androidcomparizon.api.ApiClient
-import com.mecedric.androidcomparizon.api.ApiService
 import com.mecedric.androidcomparizon.data.converter.InstantConverter
 import com.mecedric.androidcomparizon.util.ConstantsApp
 import com.mecedric.androidcomparizon.util.SerializeNulls.Companion.JSON_ADAPTER_FACTORY
@@ -44,12 +42,4 @@ object NetworkModule {
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .client(okHttpClient)
         .build()
-
-    @Provides
-    @Singleton
-    fun providesApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
-
-    @Provides
-    @Singleton
-    fun provideApiClient(apiService: ApiService): ApiClient = ApiClient(apiService)
 }

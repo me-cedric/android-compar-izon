@@ -2,7 +2,7 @@ package com.mecedric.androidcomparizon.modules.main.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mecedric.androidcomparizon.modules.home.navigation.nav.HomeNav
+import com.mecedric.androidcomparizon.modules.pokemons.navigation.nav.PokemonNav
 import com.mecedric.androidcomparizon.preferences.AppPreferences
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
@@ -64,9 +64,9 @@ class MainViewModel @Inject constructor(
 
     fun getStartRoute(): String {
 //        return if (preferences.isStartPage) {
-//            OtherNav.OnboardingNav.OnboardingScreen.route
+//            NavOption.OnboardingNav.OnboardingScreen.route
 //        } else {
-        return HomeNav.MainNav.HomeScreen.route
+        return PokemonNav.MainNav.pokemonsScreen.route
 //        }
     }
 
