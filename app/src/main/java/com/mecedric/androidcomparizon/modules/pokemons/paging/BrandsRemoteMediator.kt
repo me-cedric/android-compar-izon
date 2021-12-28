@@ -36,9 +36,9 @@ class BrandsRemoteMediator(
             val page = when (loadType) {
                 LoadType.REFRESH -> null
                 LoadType.PREPEND -> return MediatorResult.Success(endOfPaginationReached = true)
-                LoadType.APPEND -> /*(data.countPokemonModel() / state.config.pageSize.toFloat())
+                LoadType.APPEND -> (data.countPokemonModel() / state.config.pageSize.toFloat())
                     .roundToInt()
-                    .plus(1)*/5
+                    .plus(1)
             }
 
             val response = apiService.getListPokemons(

@@ -14,7 +14,7 @@ import com.mecedric.androidcomparizon.data.model.Pokemon
 import com.mecedric.androidcomparizon.modules.pokemons.ui.events.PokemonsEvents
 
 @Composable
-fun PokemonsListPokemons(
+fun PokemonsListPokemonsItems(
     model: Pokemon,
     onEvent: (PokemonsEvents) -> Unit = {},
 ) {
