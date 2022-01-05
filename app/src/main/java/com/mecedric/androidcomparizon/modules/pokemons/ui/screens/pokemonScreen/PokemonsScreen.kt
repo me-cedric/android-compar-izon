@@ -1,5 +1,6 @@
-package com.mecedric.androidcomparizon.modules.pokemons.ui.screens.catalogScreen
+package com.mecedric.androidcomparizon.modules.pokemons.ui.screens.pokemonScreen
 
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.ExperimentalComposeUiApi
@@ -13,6 +14,7 @@ import com.mecedric.androidcomparizon.modules.compose.ErrorNetworkScreen
 import com.mecedric.androidcomparizon.modules.pokemons.ui.events.PokemonsEvents
 import com.mecedric.androidcomparizon.modules.pokemons.ui.viewModels.PokemonsViewModel
 
+@ExperimentalMaterialApi
 @ExperimentalPagingApi
 @ExperimentalPagerApi
 @ExperimentalComposeUiApi

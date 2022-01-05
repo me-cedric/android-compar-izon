@@ -1,4 +1,4 @@
-package com.mecedric.androidcomparizon.modules.pokemons.ui.screens.catalogScreen
+package com.mecedric.androidcomparizon.modules.pokemons.ui.screens.pokemonScreen
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*

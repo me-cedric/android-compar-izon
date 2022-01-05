@@ -7,7 +7,11 @@ interface PokemonsScreenActions {
 
     val controller: NavHostController
 
-    fun navigateToCatalog() {
+    fun navigateToPokemonListPage() {
         controller.navigate(PokemonNav.MainNav.pokemonsScreen.route)
+    }
+
+    fun navigateToDetailsPage() {
+        controller.navigate(PokemonNav.MainNav.detailsScreen.route)
     }
 }

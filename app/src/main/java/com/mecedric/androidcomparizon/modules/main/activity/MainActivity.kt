@@ -27,6 +27,7 @@ class MainActivity : ComponentActivity() {
     private lateinit var navController: NavHostController
     private val viewModel: MainViewModel by viewModels()
 
+    @ExperimentalMaterialApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

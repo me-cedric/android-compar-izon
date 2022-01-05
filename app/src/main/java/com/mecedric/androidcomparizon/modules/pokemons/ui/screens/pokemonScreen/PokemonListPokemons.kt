@@ -1,15 +1,8 @@
-package com.mecedric.androidcomparizon.modules.pokemons.ui.screens.catalogScreen
+package com.mecedric.androidcomparizon.modules.pokemons.ui.screens.pokemonScreen
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
-import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
-import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
-import com.mecedric.androidcomparizon.R
 import com.mecedric.androidcomparizon.data.model.Pokemon
-import com.mecedric.androidcomparizon.modules.pokemons.navigation.nav.PokemonNav
 import com.mecedric.androidcomparizon.modules.pokemons.ui.events.PokemonsEvents
 
 @Composable

@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
 @HiltViewModel
-class PokemonsViewModel @Inject constructor(
+class DetailsViewModel @Inject constructor(
     private val data: DataServicePokemon,
     apiService: ApiServicePokemon,
 ) : ViewModel() {

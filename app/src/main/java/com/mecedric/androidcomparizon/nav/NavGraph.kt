@@ -2,6 +2,7 @@ package com.mecedric.androidcomparizon.nav
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
@@ -21,6 +22,7 @@ import com.mecedric.androidcomparizon.modules.pokemons.navigation.graph.pokemons
 import com.mecedric.androidcomparizon.modules.pokemons.navigation.nav.PokemonNav
 import com.mecedric.androidcomparizon.util.AddChangeRouteListener
 
+@ExperimentalMaterialApi
 @ExperimentalComposeUiApi
 @ExperimentalPagerApi
 @ExperimentalPagingApi

@@ -17,10 +17,10 @@ import com.mecedric.androidcomparizon.nav.NavActions
 @ExperimentalPagingApi
 @ExperimentalComposeUiApi
 @ExperimentalPagerApi
-fun NavGraphBuilder.pokemonsScreenGraph(
+fun NavGraphBuilder.detailsScreenGraph(
     navActions: NavActions,
 ) {
-    composable(PokemonNav.MainNav.pokemonsScreen.route) {
+    composable(PokemonNav.MainNav.detailsScreen.route) {
         val viewModel: PokemonsViewModel = hiltViewModel()
         PokemonsScreen(viewModel = viewModel) { event ->
             when (event) {
