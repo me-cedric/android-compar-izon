@@ -31,12 +31,7 @@ fun PokemonsBody(
 ) {
 
     val scope = rememberCoroutineScope()
-    val titles = listOf<String>(
-//        stringResource(id = R.string.pokemons_tab_1),
-//        stringResource(id = R.string.pokemons_tab_2)
-    )
 
-    val pagerState = rememberPagerState(pageCount = titles.size)
     val selection = remember { mutableStateOf(1) }
     val scaffoldState = rememberBackdropScaffoldState(BackdropValue.Concealed)
 
@@ -89,19 +84,23 @@ fun PokemonsBody(
         },
         frontLayerContent = {
             Text("Selection: ${selection.value}")
-            LazyColumn {
-                items(50) {
-                    ListItem(
-                        text = { Text("Item $it") },
-                        icon = {
-                            Icon(
-                                Icons.Default.Favorite,
-                                contentDescription = "Localized description"
-                            )
-                        }
-                    )
-                }
-            }
+//            LazyColumn {
+//                items(50) {
+//                    ListItem(
+//                        text = { Text("Item $it") },
+//                        icon = {
+//                            Icon(
+//                                Icons.Default.Favorite,
+//                                contentDescription = "Localized description"
+//                            )
+//                        }
+//                    )
+//                }
+//            }
+            PokemonListPokemons(
+                onEvent = onEvent,
+                items = listPokemons
+            )
         }
     )
 

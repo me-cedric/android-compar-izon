@@ -6,7 +6,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.mecedric.androidcomparizon.data.model.Pokemon
-import com.mecedric.androidcomparizon.modules.pokemons.paging.BrandsRemoteMediator
+import com.mecedric.androidcomparizon.modules.pokemons.paging.PokemonsRemoteMediator
 import com.mecedric.androidcomparizon.modules.pokemons.services.apiService.ApiServicePokemon
 import com.mecedric.androidcomparizon.modules.pokemons.services.data.DataServicePokemon
 import com.mecedric.androidcomparizon.util.ConstantsPaging
@@ -29,11 +29,11 @@ class PokemonsViewModel @Inject constructor(
     @ExperimentalPagingApi
     val listPokemons: Flow<PagingData<Pokemon>> = Pager(
         config = PagingConfig(pageSize = ConstantsPaging.PER_PAGE),
-        remoteMediator = BrandsRemoteMediator(data, apiService) { status ->
+        remoteMediator = PokemonsRemoteMediator(data, apiService) { status ->
             _errorConnection.value = status
         }
     ) {
-        data.pagingListBrandModel()
+        data.pagingListPokemonModel()
     }.flow
 
 }

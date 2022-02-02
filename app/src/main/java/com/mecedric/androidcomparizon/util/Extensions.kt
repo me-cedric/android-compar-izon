@@ -57,10 +57,11 @@ fun <T> LiveData<T>.observeOnce(lifecycleOwner: LifecycleOwner, observer: Observ
 
 @Composable
 fun NavController.AddChangeRouteListener() {
+    val localBaseViewModel = LocalBaseViewModel.current
     DisposableEffect(this) {
         val callback = NavController.OnDestinationChangedListener { controller, _, _ ->
-            controller.currentDestination?.route?.let { /*route*/_ ->
-//                localBaseViewModel.setCurrentRoute(route)
+            controller.currentDestination?.route?.let { route ->
+                localBaseViewModel.setCurrentRoute(route)
             }
         }
         addOnDestinationChangedListener(callback)

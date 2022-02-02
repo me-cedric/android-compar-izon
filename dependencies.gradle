@@ -10,7 +10,7 @@ ext.versions = [
         kotlin                  : '1.5.31',
 
         coroutines              : '1.5.2',
-        composeVersion          : '1.1.0-rc03',
+        composeVersion          : '1.2.0-alpha02',
         hiltVersion             : '2.40.5',
         roomVersion             : '2.4.1',
         retrofitVersion         : '2.9.0',

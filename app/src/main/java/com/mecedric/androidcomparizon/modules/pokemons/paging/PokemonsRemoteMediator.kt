@@ -13,7 +13,7 @@ import com.mecedric.androidcomparizon.util.ConstantsPaging.CACHE_TIMEOUT
 import kotlin.math.roundToInt
 
 @ExperimentalPagingApi
-class BrandsRemoteMediator(
+class PokemonsRemoteMediator(
     private val data: DataServicePokemon,
     private val apiService: ApiServicePokemon,
     private val onErrorUnknownHost: (Boolean) -> Unit,

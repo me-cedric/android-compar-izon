@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
-import androidx.compose.runtime.*
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.MaterialTheme
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.graphics.toArgb
 import androidx.navigation.NavHostController
@@ -16,6 +16,7 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.mecedric.androidcomparizon.modules.main.theme.AndroidAppTheme
 import com.mecedric.androidcomparizon.modules.main.viewmodel.MainViewModel
 import com.mecedric.androidcomparizon.nav.NavGraph
+import com.mecedric.androidcomparizon.util.LocalBaseViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @ExperimentalMaterialApi
@@ -32,11 +33,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             navController = rememberNavController()
-            AndroidAppTheme {
-                // change status bar color
-                this@MainActivity.window.statusBarColor = MaterialTheme.colors.primaryVariant.toArgb()
-                // select graph
-                NavGraph(navController, viewModel)
+            CompositionLocalProvider(LocalBaseViewModel provides viewModel) {
+                AndroidAppTheme {
+                    // change status bar color
+                    this@MainActivity.window.statusBarColor =
+                        MaterialTheme.colors.primaryVariant.toArgb()
+                    // select graph
+                    NavGraph(navController, viewModel)
+                }
             }
         }
     }

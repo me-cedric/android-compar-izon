@@ -25,7 +25,7 @@ interface DataPokemonModel {
         return dao.count()
     }
 
-    fun pagingListBrandModel(): PagingSource<Int, Pokemon> {
+    fun pagingListPokemonModel(): PagingSource<Int, Pokemon> {
         return dao.pagingSource()
     }
 }
