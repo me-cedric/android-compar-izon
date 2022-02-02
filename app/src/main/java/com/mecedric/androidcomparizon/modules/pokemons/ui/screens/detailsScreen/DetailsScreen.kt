@@ -11,7 +11,6 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.mecedric.androidcomparizon.data.model.Pokemon
 import com.mecedric.androidcomparizon.modules.compose.ErrorNetworkScreen
 import com.mecedric.androidcomparizon.modules.pokemons.ui.events.DetailsEvents
-import com.mecedric.androidcomparizon.modules.pokemons.ui.screens.pokemonScreen.PokemonsBody
 import com.mecedric.androidcomparizon.modules.pokemons.ui.viewModels.DetailsViewModel
 
 @ExperimentalPagingApi

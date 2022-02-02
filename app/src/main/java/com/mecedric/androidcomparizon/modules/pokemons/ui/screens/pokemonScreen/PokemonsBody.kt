@@ -1,7 +1,6 @@
 package com.mecedric.androidcomparizon.modules.pokemons.ui.screens.pokemonScreen
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -15,8 +14,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.paging.compose.LazyPagingItems
 import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.HorizontalPager
-import com.google.accompanist.pager.rememberPagerState
 import com.mecedric.androidcomparizon.data.model.Pokemon
 import com.mecedric.androidcomparizon.modules.pokemons.ui.events.PokemonsEvents
 import kotlinx.coroutines.launch
@@ -84,58 +81,10 @@ fun PokemonsBody(
         },
         frontLayerContent = {
             Text("Selection: ${selection.value}")
-//            LazyColumn {
-//                items(50) {
-//                    ListItem(
-//                        text = { Text("Item $it") },
-//                        icon = {
-//                            Icon(
-//                                Icons.Default.Favorite,
-//                                contentDescription = "Localized description"
-//                            )
-//                        }
-//                    )
-//                }
-//            }
             PokemonListPokemons(
                 onEvent = onEvent,
                 items = listPokemons
             )
         }
     )
-
-//    Scaffold {
-//        Column {
-//            TabRow(
-//                backgroundColor = MaterialTheme.colors.primary,
-//                selectedTabIndex = pagerState.currentPage,
-//                indicator = @Composable { tabPositions ->
-//                    TabRowDefaults.Indicator(
-//                        color = if (isSystemInDarkTheme()) Color.White else Color.Black,
-//                        modifier = Modifier.tabIndicatorOffset(tabPositions[pagerState.currentPage])
-//                    )
-//                },
-//            ) {
-//                titles.forEachIndexed { index, title ->
-//                    Tab(
-//                        text = { Text(text = title, color = MaterialTheme.colors.onPrimary) },
-//                        selected = pagerState.currentPage == index,
-//                        onClick = {
-//                            scope.launch {
-//                                pagerState.animateScrollToPage(index)
-//                            }
-//                        }
-//                    )
-//                }
-//            }
-//            HorizontalPager(
-//                state = pagerState,
-//            ) { page ->
-//                PokemonListPokemons(
-//                    onEvent = onEvent,
-//                    items = listPokemons
-//                )
-//            }
-//        }
-//    }
 }
