@@ -54,7 +54,7 @@ dependencies {
     implementation "androidx.hilt:hilt-navigation-compose:$versions.hiltNavigationVersion"
 
     // UI
-    implementation "androidx.activity:activity-compose:$versions.materialVersion"
+    implementation "androidx.activity:activity-compose:$versions.activityComposeVersion"
     implementation "com.google.android.material:material:$versions.materialVersion"
     implementation "androidx.compose.material:material:$versions.composeVersion"
     implementation "androidx.compose.ui:ui-tooling-preview:$versions.composeVersion"
@@ -64,7 +64,6 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:$versions.composeVersion"
     implementation "androidx.compose.material:material-icons-extended:$versions.composeVersion"
     implementation "androidx.constraintlayout:constraintlayout-compose:$versions.constraintLayoutComposeVersion"
-    implementation "androidx.activity:activity-compose:$versions.activityComposeVersion"
     implementation "androidx.paging:paging-compose:$versions.pagingComposeVersion"
 
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycleVersion"
