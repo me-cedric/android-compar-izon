@@ -80,7 +80,6 @@ fun PokemonsBody(
             }
         },
         frontLayerContent = {
-            Text("Selection: ${selection.value}")
             PokemonListPokemons(
                 onEvent = onEvent,
                 items = listPokemons

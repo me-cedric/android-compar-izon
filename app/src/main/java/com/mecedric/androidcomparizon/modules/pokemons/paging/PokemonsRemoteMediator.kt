@@ -53,7 +53,12 @@ class PokemonsRemoteMediator(
                             clearPokemonModel()
                         }
                         if (response.data?.results != null || loadType != LoadType.APPEND) {
-                            insertPokemonModel(response.data?.results!!)
+                            val elementsWithMappedIds = response.data?.results?.map {
+                                // set the id to the one in url
+                                it.id = it.url.split("/").last { x -> x.isNotEmpty() }.toInt()
+                                it
+                            }
+                            insertPokemonModel(elementsWithMappedIds!!)
                         }
                     }
                 ERROR -> Log.e("pokemon", response.message ?: "error loading pokemons")
