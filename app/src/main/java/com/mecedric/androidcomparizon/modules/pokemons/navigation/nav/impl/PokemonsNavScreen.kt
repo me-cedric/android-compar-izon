@@ -7,6 +7,6 @@ object PokemonsNavScreen {
         override val route: String = "PokemonsScreen"
     }
     val detailsScreen = object : NavScreen {
-        override val route: String = "DetailsScreen"
+        override val route: String = "DetailsScreen/{pokemonId}"
     }
 }

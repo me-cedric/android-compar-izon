@@ -25,6 +25,7 @@ fun NavGraphBuilder.pokemonsScreenGraph(
         PokemonsScreen(viewModel = viewModel) { event ->
             when (event) {
                 is PokemonsEvents.NavigateBack -> navActions.navigateToUp.invoke()
+                is PokemonsEvents.NavigateToDetails -> navActions.navigateToDetailsPage(event.pokemonId)
             }
         }
     }

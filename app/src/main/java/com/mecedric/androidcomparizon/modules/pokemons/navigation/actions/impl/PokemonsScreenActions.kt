@@ -11,7 +11,7 @@ interface PokemonsScreenActions {
         controller.navigate(PokemonNav.MainNav.pokemonsScreen.route)
     }
 
-    fun navigateToDetailsPage() {
+    fun navigateToDetailsPage(id: Int) {
         controller.navigate(PokemonNav.MainNav.detailsScreen.route)
     }
 }

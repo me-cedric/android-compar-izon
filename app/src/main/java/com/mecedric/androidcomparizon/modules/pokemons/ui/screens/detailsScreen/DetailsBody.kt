@@ -21,45 +21,9 @@ fun DetailsBody(
 ) {
 
     val scope = rememberCoroutineScope()
-    val titles = listOf<String>(
-//        stringResource(id = R.string.pokemons_tab_1),
-//        stringResource(id = R.string.pokemons_tab_2)
-    )
-
-    val pagerState = rememberPagerState(pageCount = titles.size)
 
     Scaffold {
         Column {
-//            TabRow(
-//                backgroundColor = MaterialTheme.colors.primary,
-//                selectedTabIndex = pagerState.currentPage,
-//                indicator = @Composable { tabPositions ->
-//                    TabRowDefaults.Indicator(
-//                        color = if (isSystemInDarkTheme()) Color.White else Color.Black,
-//                        modifier = Modifier.tabIndicatorOffset(tabPositions[pagerState.currentPage])
-//                    )
-//                },
-//            ) {
-//                titles.forEachIndexed { index, title ->
-//                    Tab(
-//                        text = { Text(text = title, color = MaterialTheme.colors.onPrimary) },
-//                        selected = pagerState.currentPage == index,
-//                        onClick = {
-//                            scope.launch {
-//                                pagerState.animateScrollToPage(index)
-//                            }
-//                        }
-//                    )
-//                }
-//            }
-            HorizontalPager(
-                state = pagerState,
-            ) { page ->
-//                PokemonListPokemons(
-//                    onEvent = onEvent,
-//                    items = listPokemons
-//                )
-            }
         }
     }
 }

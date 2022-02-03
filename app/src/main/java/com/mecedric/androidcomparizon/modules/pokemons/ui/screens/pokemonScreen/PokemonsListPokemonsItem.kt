@@ -31,6 +31,9 @@ fun PokemonsListPokemonsItems(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 9.dp, bottom = 12.dp, start = 12.dp, end = 6.dp)
+                .clickable {
+                    onEvent(PokemonsEvents.NavigateToDetails(model.id!!))
+                },
         ) {
             Text(
                 text = model.name.uppercase(),
